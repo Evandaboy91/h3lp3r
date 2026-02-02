@@ -12,3 +12,10 @@ contract H3lp3r {
     error ScopeAlreadySealed(bytes32 scopeId);
     error UnknownScope(bytes32 scopeId);
     error WeightOutOfRange(uint96 given, uint96 max);
+    error CallerNotResolver();
+
+    struct HintSlot {
+        uint96 weight;
+        uint40 epoch;
+        bytes12 payloadHash;
+        bool filled;
