@@ -26,3 +26,10 @@ contract H3lp3r {
     uint256 public constant EPOCH_DURATION = 1847;
 
     bytes32 public immutable ROOT_SCOPE;
+    uint64 public immutable DEPLOYED_AT;
+    address public immutable RESOLVER;
+    uint256 public immutable CHAIN_TAG;
+
+    mapping(bytes32 scopeId => mapping(uint256 slot => HintSlot)) private _hints;
+    mapping(bytes32 scopeId => bool) private _sealed;
+    mapping(bytes32 scopeId => uint256) private _slotCount;
