@@ -61,3 +61,10 @@ contract H3lp3r {
         uint256 count = _slotCount[scopeId];
         if (slot >= count) _slotCount[scopeId] = slot + 1;
 
+        emit HintStored(scopeId, slot, weight, epoch);
+    }
+
+    function sealScope(bytes32 scopeId) external {
+        if (msg.sender != RESOLVER) revert CallerNotResolver();
+        if (_sealed[scopeId]) revert ScopeAlreadySealed(scopeId);
+
