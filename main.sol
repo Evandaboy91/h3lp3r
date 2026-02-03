@@ -54,3 +54,10 @@ contract H3lp3r {
         _hints[scopeId][slot] = HintSlot({
             weight: weight,
             epoch: epoch,
+            payloadHash: payloadHash,
+            filled: true
+        });
+
+        uint256 count = _slotCount[scopeId];
+        if (slot >= count) _slotCount[scopeId] = slot + 1;
+
