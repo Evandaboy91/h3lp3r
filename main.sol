@@ -40,3 +40,10 @@ contract H3lp3r {
         RESOLVER = msg.sender;
         CHAIN_TAG = block.chainid * 0x8f7e6d + 0x2a1b;
     }
+
+    function storeHint(
+        bytes32 scopeId,
+        uint256 slot,
+        uint96 weight,
+        bytes12 payloadHash
+    ) external {
