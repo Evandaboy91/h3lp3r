@@ -47,3 +47,10 @@ contract H3lp3r {
         uint96 weight,
         bytes12 payloadHash
     ) external {
+        if (_sealed[scopeId]) revert ScopeAlreadySealed(scopeId);
+        if (weight > MAX_WEIGHT) revert WeightOutOfRange(weight, uint96(MAX_WEIGHT));
+
+        uint40 epoch = uint40(block.timestamp / EPOCH_DURATION);
+        _hints[scopeId][slot] = HintSlot({
+            weight: weight,
+            epoch: epoch,
