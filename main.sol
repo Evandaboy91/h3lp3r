@@ -75,3 +75,10 @@ contract H3lp3r {
     function getHint(bytes32 scopeId, uint256 slot) external view returns (HintSlot memory) {
         return _hints[scopeId][slot];
     }
+
+    function isSealed(bytes32 scopeId) external view returns (bool) {
+        return _sealed[scopeId];
+    }
+
+    function slotCount(bytes32 scopeId) external view returns (uint256) {
+        return _slotCount[scopeId];
