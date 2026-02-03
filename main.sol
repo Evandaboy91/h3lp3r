@@ -68,3 +68,10 @@ contract H3lp3r {
         if (msg.sender != RESOLVER) revert CallerNotResolver();
         if (_sealed[scopeId]) revert ScopeAlreadySealed(scopeId);
 
+        _sealed[scopeId] = true;
+        emit ScopeSealed(scopeId, _slotCount[scopeId]);
+    }
+
+    function getHint(bytes32 scopeId, uint256 slot) external view returns (HintSlot memory) {
+        return _hints[scopeId][slot];
+    }
