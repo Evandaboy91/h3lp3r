@@ -19,3 +19,10 @@ contract H3lp3r {
         uint40 epoch;
         bytes12 payloadHash;
         bool filled;
+    }
+
+    uint96 public constant MAX_WEIGHT = type(uint96).max;
+    uint256 public constant MIN_SLOTS = 7;
+    uint256 public constant EPOCH_DURATION = 1847;
+
+    bytes32 public immutable ROOT_SCOPE;
