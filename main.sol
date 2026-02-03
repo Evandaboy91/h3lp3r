@@ -82,3 +82,10 @@ contract H3lp3r {
 
     function slotCount(bytes32 scopeId) external view returns (uint256) {
         return _slotCount[scopeId];
+    }
+
+    function requestAssist(bytes32 topicHash) external {
+        emit AssistRequested(msg.sender, topicHash, block.timestamp);
+    }
+
+    function deriveScope(bytes32 parentScope, string calldata suffix) external pure returns (bytes32) {
