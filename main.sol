@@ -33,3 +33,10 @@ contract H3lp3r {
     mapping(bytes32 scopeId => mapping(uint256 slot => HintSlot)) private _hints;
     mapping(bytes32 scopeId => bool) private _sealed;
     mapping(bytes32 scopeId => uint256) private _slotCount;
+
+    constructor() {
+        ROOT_SCOPE = keccak256(abi.encodePacked("h3lp3r.root", block.chainid, block.timestamp));
+        DEPLOYED_AT = uint64(block.timestamp);
+        RESOLVER = msg.sender;
+        CHAIN_TAG = block.chainid * 0x8f7e6d + 0x2a1b;
+    }
